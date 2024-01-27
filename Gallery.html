@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            background: white;
+            padding: 20px;
+        }
+
+        .container .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container .image-container .image {
+            height: 250px;
+            width: 350px;
+            border: 10px solid white;
+            box-shadow: 0 5px 15px black;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .container .image-container .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: 0.2s linear;
+        }
+
+        .container .image-container .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .container .image-container .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(82, 216, 82, 0.9); /* Updated color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .container .image-container .image:hover .description {
+            opacity: 1;
+        }
+
+        .container .popup-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            height: 100%;
+            width: 100%;
+            z-index: 100;
+            display: none;
+        }
+
+        .container .popup-image span {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 40px;
+            font-weight: bolder;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .container .popup-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid white;
+            border-radius: 5px;
+            width: 750px;
+            object-fit: cover;
+        }
+
+
+        h1{
+            font-size: 36px;
+            font-family: 'Poppins';
+        }
+
+        @media (max-width: 768px) {
+            .container .popup-image img {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <center>
+        <h1>Gallery</h1><br><br>
+    </center>
+    <div class="container">
+        <div class="image-container">
+            <div class="image" data-description="Self e Hackathon winning moments ">
+                <img src="images/Prize winning Moments Self e Hackathon.jpg"Self e Hackathon winning moments" />
+                <div class="description">Self E Hackathon Winning Moments</div>
+            </div>
+            <div class="image" data-description="Self E Hackathon TeamMates">
+                <img src="images/Self E Team.jpg" alt="Self E Hackathon TeamMates" />
+                <div class="description">Self E Hackathon Team Mates</div>
+            </div>
+            <div class="image" data-description="Hackathon Event">
+                <img src="images/IMG-20240117-WA0010.jpg" alt="Hackathon Event" />
+                <div class="description">Hackathon Event</div>
+            </div>
+            <div class="image" data-description="Hackathon Event">
+                <img src="images/IMG-20240117-WA0012.jpg" alt="Hackathon Event" />
+                <div class="description">Hackathon Event</div>
+            </div>
+            <div class="image" data-description="Hackathon Event">
+                <img src="images/IMG-20240117-WA0013.jpg" alt="Hackathon Event" />
+                <div class="description">Hackathon Event</div>
+            </div>
+        </div>
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="" alt="" />
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".image img").forEach(image => {
+            image.onclick = () => {
+                document.querySelector(".popup-image").style.display = "block";
+                document.querySelector(".popup-image img").src =
+                    image.getAttribute("src");
+            };
+        });
+
+        document.querySelector(".popup-image span").onclick = () => {
+            document.querySelector(".popup-image").style.display = "none";
+        };
+    </script>
+</body>
+</html>

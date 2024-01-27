@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            background: white;
+            padding: 20px;
+        }
+
+        .container .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container .image-container .image {
+            height: 250px;
+            width: 350px;
+            border: 10px solid white;
+            box-shadow: 0 5px 15px black;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .container .image-container .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: 0.2s linear;
+        }
+
+        .container .image-container .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .container .image-container .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(82, 216, 82, 0.9); /* Updated color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .container .image-container .image:hover .description {
+            opacity: 1;
+        }
+
+        .container .popup-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            height: 100%;
+            width: 100%;
+            z-index: 100;
+            display: none;
+        }
+
+        .container .popup-image span {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 40px;
+            font-weight: bolder;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .container .popup-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid white;
+            border-radius: 5px;
+            width: 750px;
+            object-fit: cover;
+        }
+
+
+        h1{
+            font-size: 36px;
+            font-family: 'Poppins';
+        }
+
+        @media (max-width: 768px) {
+            .container .popup-image img {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <center>
+        <h1>My Certificates</h1><br><br>
+    </center>
+    <div class="container">
+        <div class="image-container">
+            <div class="image" data-description="HTML Certificate">
+                <img src="images/Mind luster HTML Certificate.jpg"Html Certificate" />
+                <div class="description">Mindluster HTML Certificate</div>
+            </div>
+            <div class="image" data-description="C Language Certificate">
+                <img src="images/Great Learning C Language Certificate.png" alt="C language Certificate" />
+                <div class="description">Great Learning C Language Certificate</div>
+            </div>
+            <div class="image" data-description="Canva for Beginners Certificate">
+                <img src="images/Simplilearn Canva for beginers Certificate.png" alt="Canva Certificates" />
+                <div class="description">Simplilearn Canva for Beginners Certificate</div>
+            </div>
+            <div class="image" data-description="Self e Hackaton Certificate">
+                <img src="images/Self e Hacathon Certificate.jpg" alt="Self e Hackathon certificates" />
+                <div class="description">Self e Hakathon Certificate</div>
+            </div>
+            <div class="image" data-description="Codefiesta Certificate">
+                <img src="images/codefiesta certificate.jpg" alt="Codefiesta Certificate" />
+                <div class="description">Codefiesta Certificate</div>
+            </div>
+            <div class="image" data-description="Creatathon Certificate">
+                <img src="images/Creatathon certificate.jpg" />
+                <div class="description">Creatathon Certificate</div>
+            </div>
+            <div class="image" data-description="JavaScript Certificate">
+                <img src="images/Simplilern Javascript Certificate.png" />
+                <div class="description">Simplilearn JavaScript Certificate</div>
+            </div>
+            <div class="image" data-description="Solo learn C Language">
+                <img src="images/Solo learn C Language Certificate.jpg" />
+                <div class="description">Solo Learn C Language Certificate</div>
+            </div>
+            <div class="image" data-description="HTML Certificate">
+                <img src="images/Simplilearn HTML Certificate.png" />
+                <div class="description">Simplilearn HTML Certificate</div>
+            </div>
+        </div>
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="" alt="" />
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".image img").forEach(image => {
+            image.onclick = () => {
+                document.querySelector(".popup-image").style.display = "block";
+                document.querySelector(".popup-image img").src =
+                    image.getAttribute("src");
+            };
+        });
+
+        document.querySelector(".popup-image span").onclick = () => {
+            document.querySelector(".popup-image").style.display = "none";
+        };
+    </script>
+</body>
+</html>

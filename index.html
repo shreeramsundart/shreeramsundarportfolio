@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="SRS.css">
+    <title>SRS Personal Portfolio</title>
+
+
+
+    <!-- --------- Javascript ---------- -->
+    <script src="SRS.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("VC_2Cjxj12qUVl4en");
+   })();
+</script>
+
+
+
+
+</head>
+<body>
+   <div class="container">
+
+    <!-- --------------- HEADER --------------- -->
+    <header id="header">
+      <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Portfolio</p>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list">
+                    <a href="#home" class="nav-link active-link">Home</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#about" class="nav-link active-link">About</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#projects" class="nav-link active-link">Projects</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#contact" class="nav-link active-link">Contact</a>
+                    <div class="circle"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+    </header>
+
+
+    <!-- -------------- MAIN ---------------- -->
+    <main class="wrapper">
+       <!-- -------------- FEATURED BOX ---------------- -->
+       
+       <section class="featured-box reveal" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+                <span>Hello Everyone</span>
+            </div>
+            <div class="featured-name">
+                <p>I'm <span class="typedText">Shree Ram Sundar</span></p>
+                <div class="featured-name">
+                    <p class="featured-name"></p>
+                </div>
+            </div>
+            <div class="featured-text-info">
+                <p>A College student at Sri Eshwar College of Engineering Coimbatore , pursuing a B.Tech in Artificial Intelligence and Data Science.</br></br>
+                    
+                    Follow me on....
+                </p>
+            </div>
+         
+            <div class="social_icons">
+                <div class="icon" onclick="window.location.href='https://www.instagram.com/shree_ram_sundar/'" target="_blank">
+                    <img src="images/OIP.jpeg" alt="Instagram">
+                </div>
+                <div class="icon" onclick="window.location.href='https://www.facebook.com/shree.r.sundar'" target="_blank">
+                    <img src="images/facebook icon.jpeg" alt="Facebook">
+                </div>
+                <div class="icon" onclick="window.location.href='https://www.linkedin.com/in/shreeramsundar6/'" target="_blank">
+                    <img src="images/linked in icon.png" alt="Linked In">
+                </div>
+                <div class="icon" onclick="window.location.href='https://twitter.com/Shreeram_Sundar' "target="_blank">
+                    <img src="images/X image.png" alt="X">
+                </div>
+                <div class="icon" onclick="window.location.href='https://github.com/your_github_username'" target="_blank">
+                    <i class="uil uil-github-alt"></i>
+                </div>
+            </div>
+            
+          </div>
+          <div class="featured-image">
+            <div class="image">
+                <img src="./images/shreeram_sundar_profile_pic.jpg" alt="Your Image">
+            </div>
+        </div>
+        
+          <div class="scroll-icon-box">
+            <a href="#about" class="scroll-btn">
+                <i class="uil uil-mouse-alt"></i>
+                <p>Scroll Down</p>
+            </a>
+          </div>
+       </section>
+
+
+       <!-- -------------- ABOUT BOX ---------------- -->
+       <section class="section reveal" id="about">
+          <div class="top-header">
+            <h1>About Me</h1>
+          </div>
+          <div class="row">
+            <div class="col">
+                <div class="about-info">
+                    <h3>My Introduction</h3>
+                    <p> Hi , I'm Shree Ram Sundar, a first-year student at Sri Eshwar College of Engineering, pursuing B.Tech in Artificial Intelligence and Data Science.<br><br>
+
+                         I'm passionate about AI and have some knowledge in HTML, CSS, and Javascript . I also have a knack for creating impactful presentations using Microsoft PowerPoint and Canva.
+                        
+                        Excited to grow, learn, and explore the possibilities in the world of tech!
+                    </p>
+                   
+                </div>
+            </div>
+            <div class="col">
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Programming Skills</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>C language</span>
+                       
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Other skills </h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>Microsoft Power point </span>
+                        <span>Canva</span>
+                       
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+       </section>
+
+
+       <!-- -------------- PROJECT BOX ---------------- -->
+       
+       <section class="section reveal" id="projects">
+          <div class="top-header">
+              <h1>Projects</h1>
+          </div>
+          <div class="project-container">
+                <div class="project-box" onclick="openCertificatesPage()">
+                    <i class="uil uil-briefcase-alt"></i>
+                    <h3>Certifications</h3>
+                    <label>Click here to view</label>
+                </div>
+                
+
+                <script>
+                    function openCertificatesPage() {
+                        window.location.href = '/Certificates.html';
+                    }
+                </script>
+                
+                <div class="project-box" onclick="openContestsandEventsPage()">
+                    <i class="uil uil-users-alt"></i>
+                    <h3>Contests and Events</h3>
+                    <label>Click here to view</label>
+                </div>
+
+                <script>
+                    function openContestsandEventsPage() {
+                        window.location.href ='/contest%20and%20events.html';
+                    }
+                </script>
+                
+            <div class="project-box" onclick="opengalleryPage()">
+                <i class="uil uil-award"></i>
+                <h3>Gallery</h3>
+                <label>Click here to view</label>
+            </div>
+            <script>
+                function opengalleryPage() {
+                    window.location.href = '/Gallery.html';
+                }
+            </script>
+            
+          </div>
+       </section>
+
+
+       <!-- -------------- CONTACT BOX ---------------- -->
+       <section class="section reveal" id="contact">
+          <div class="top-header">
+            <h1>Get in touch</h1>
+            <span> Contact me here</span>
+          </div>
+          <div class="row">
+             <div class="col">
+                <div class="contact-info">
+                    <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
+                    <p><i class="uil uil-envelope"></i> Email : shreeramsundar6@gmail.com</p>
+                    <p><i class="uil uil-phone"></i> Phone : +91 81899 67703</p>
+                    <p><i class="uil uil-phone"></i> Coimbatore , India</p>
+                </div>
+             </div>
+             <div class="col">
+                <div class="form-control">
+                    <div class="form-inputs">
+                        <input type="text" class="input-field" id="name" placeholder="Enter your Name" required>
+                        <input type="text" class="input-field" id="email" placeholder="Enter your Email" required>
+                        
+                    </div>
+                    <div>
+                    <input type="text" class="text-subject-area" id="subject" placeholder="Enter Subject" required></textsubjectarea></div>
+                    <div class="text-area">
+                        <textarea class="text-area" id="message" placeholder="Enter Message"></textarea>
+                    </div>
+                    <div class="form-button">
+                        <button class="btn" onclick="sendmail()">Send <i class="uil uil-message"></i></button>
+                    </div>
+                </div>
+             </div>
+          </div>
+       </section>
+    </main>
+
+
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+        <div class="top-footer">
+            <p>Shree Ram Sundar</p>
+        </div>
+        <div class="middle-footer">
+            <ul class="footer-menu">
+                <li class="footer_menu_list">
+                    <a href="#home" class="nav-link active-link">Home</a>
+                   
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#about" class="nav-link active-link">About</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#projects" class="nav-link active-link">Projects</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#contact" class="nav-link active-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-social_icons">
+            <div class="icon" onclick="window.location.href='https://www.instagram.com/shree_ram_sundar/'" target="_blank">
+                <img src="images/OIP.jpeg" alt="Instagram">
+            </div>
+            <div class="icon" onclick="window.location.href='https://www.facebook.com/shree.r.sundar'" target="_blank">
+                <img src="images/facebook icon.jpeg" alt="Facebook">
+            </div>
+            <div class="icon" onclick="window.location.href='https://www.linkedin.com/in/shreeramsundar6/'" target="_blank">
+                <img src="images/linked in icon.png" alt="Linked In">
+            </div>
+            <div class="icon" onclick="window.location.href='https://twitter.com/Shreeram_Sundar' "target="_blank">
+                <img src="images/X image.png" alt="X">
+            </div>
+            <div class="icon" onclick="window.location.href='https://github.com/your_github_username'" target="_blank">
+                <i class="uil uil-github-alt"></i>
+            </div>
+            </div>
+        <div class="bottom-footer">
+            <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Shree Ram Sundar</a> - All rights reserved</p>
+        </div>
+    </footer>
+    </div>
+
+ 
+
+
+    
+</body>
+</html>

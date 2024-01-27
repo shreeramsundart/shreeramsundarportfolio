@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contests and Events</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            background: white;
+        }
+
+        .container .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .container .image-container .image {
+            height: 360px;
+            width: 280px;
+            border: 10px solid white;
+            box-shadow: 0 5px 15px rgb(82, 216, 82);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .container .image-container .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: 0.2s linear;
+        }
+
+        .container .image-container .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .container .image-container .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(82, 216, 82, 0.9); /* Updated color */
+            color: white;
+            text-align:center;
+            padding: 10px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .container .image-container .image:hover .description {
+            opacity: 1;
+        }
+
+        .container .popup-image {
+            position:fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            height: 100%;
+            width: 100%;
+            z-index: 100;
+            display: none;
+        }
+
+        .container .popup-image span {
+            position:fixed;
+            top: 0;
+            right: 10px;
+            font-size: 40px;
+            font-weight:bolder;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .container .popup-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid white;
+        border-radius: 5px;
+        max-width: 95%; /* Use max-width to prevent the image from exceeding the viewport width */
+        max-height: 95vh; /* Use max-height to prevent the image from exceeding the viewport height */
+        object-fit: contain; /* Use contain to maintain the image's aspect ratio */
+    }
+
+    .container .image-container .image .event-description {
+            text-align: center;
+            margin-top: 10px;
+            color: #333; /* Adjust the color as needed */
+        }
+
+        .event-description {
+            margin-top: 30px;
+            text-align:center;
+        }
+        .container {
+            width: 90%;
+            margin-left: 80px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px black;
+            padding: 30px;
+            
+            
+        }
+
+        h2 {
+    color: rgb(30, 159, 171);
+    font-size: 28px; /* Adjust the font size as needed */
+    font-family: 'Poppins';
+   
+}
+
+
+h3{
+    font-weight:bold;
+    font-size: 16px; ;
+    font-family: 'Poppins';
+}
+  h1{
+    font-family: 'Poppins';
+    font-size: 36px; ;
+  }
+       
+
+        
+
+
+        
+        @media (max-width: 768px) {
+            .container .popup-image img {
+                width: 95%;
+            }
+        }
+
+  
+
+        
+
+    
+    </style>
+</head>
+<body>
+    <br><br>
+    <center>
+        <h1>Contests and Events</h1><br><br><br>
+    </center>
+    <div class="container">
+        <h2 align="center">Self E Hackathon:</h2><br><br>
+        <div class="image-container">
+            <div class="image" data-description="Self e Hackaton Poster">
+                <img src="images/self e Hackaton winner poster.jpg" alt="Self e Hackaton Poster" />
+                <div class="description">Self e Hackaton Winners</div>
+                
+            </div>
+            <div>
+            <br><br><h3 class="event-description">It was my first Hackathon contest and I have no idea about it . And the Problem Statement given to us is about the Waste Management and we came up with<br><br> solution called WasteX which include Both hardware and software to keep the waste management well organized and providing awareness to the citizens to<br><br> kepp our city clean and green in low cost efficient . Even though it was my first I worked hard for it . The event 
+                was conducted by the Department of <br><br>Computer Science Engineering exclusive for first year students at Sri Eshwar College Of Engineering , Coimbatore , which took place from October 3 to <br><br>October 19 , 2023.
+            Among the 100 teams that participated , the top 32 teams  were selected to completein the 6 hour Grand finalae . The Event was concluded<br><br>
+        with the Top 5 Winning Teams  recieving cash prizes and trophies from the Principal . And I was very happy that I had lead my Team to the Victory.</h3>
+        </div>
+        
+        
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="" alt="" />
+        </div>
+    </div>
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="" alt="" />
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".image img").forEach(image => {
+            image.onclick = () => {
+                document.querySelector(".popup-image").style.display = "block";
+                document.querySelector(".popup-image img").src =
+                    image.getAttribute("src");
+            };
+        });
+
+        document.querySelector(".popup-image span").onclick = () => {
+            document.querySelector(".popup-image").style.display = "none";
+        };
+    </script>
+</body>
+</html>
