@@ -222,6 +222,64 @@ nav{
         font-size: 50px; /* Set the font size for icon elements */
     }
 
+    .center-container {
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+      }
+      
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
+      .whatsapp-button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(65, 171, 151);
+        color: var(--color-white);
+        border-radius: 23px; /* Adding border-radius for all elements */
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Increased intensity box shadow in all directions */
+        animation: pop 0.5s ease-in-out infinite; /* Apply popping animation */
+      }
+      
+      .whatsapp-button p {
+        margin-left: 10px;
+        margin-right: 5px; /* Adjust spacing between text and icon */
+        font-size: 18px; /* Adjust font size */
+      }
+      
+      .whatsapp-button .form-button > .btn:hover {
+        background: #3baf18;
+      }
+      
+      .whatsapp-button i {
+        font-size: 18px;
+        transform: rotate(-45deg);
+      }
+      
+      .whatsapp-button img {
+        border-radius: 50%;
+        cursor: pointer;
+        width: 50px; /* Adjust icon size */
+        height: 50px; /* Adjust icon size */
+      }
+      
+      
+      
+      
+      
+      
+
 /* ----- FEATURED IMAGE BOX ----- */
 .featured-image{
     display: flex;
