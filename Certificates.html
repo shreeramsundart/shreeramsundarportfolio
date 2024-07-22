@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         * {
@@ -12,209 +13,303 @@
             box-sizing: border-box;
         }
 
-            .container {
-            width: 90%;
-            margin-left: 80px;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            padding: 35px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
             background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 0 10px black;
-            padding: 30px;
-            
-            
-        }
-        .container .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            padding: 20px;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .container .image-container .image {
-            height: 250px;
-            width: 350px;
-            border: 10px solid white;
-            box-shadow: 0 5px 15px black;
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
+        .section {
+            margin-bottom: 30px;
         }
 
-        .container .image-container .image img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            transition: 0.2s linear;
+        .section h2 {
+            font-size: 24px;
+            color: #3a3a3a;
+            margin-bottom: 25px;
         }
 
-        .container .image-container .image:hover img {
-            transform: scale(1.1);
-        }
-
-        .container .image-container .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(82, 216, 82, 0.9);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .container .image-container .image:hover .description {
-            opacity: 1;
-        }
-
-        .container .popup-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: black;
-            height: 100%;
-            width: 100%;
-            z-index: 100;
-            display: none;
-        }
-
-        .container .popup-image span {
-            position: absolute;
-            top: 0;
-            right: 10px;
-            font-size: 40px;
-            font-weight: bolder;
-            color: white;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        .container .popup-image img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 5px solid white;
+        .certificate-list {
+            list-style: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            width: 750px;
-            object-fit: cover;
+            background-color: #fff;
         }
 
+        .certificate-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
 
+        .certificate-list li:last-child {
+            border-bottom: none;
+        }
+
+        .icon-certificate {
+            display: flex;
+            width: 45px; /* Adjust size as needed */
+            height: 45px; /* Adjust size as needed */
+            background: url('images/certificate.png') no-repeat center center; /* Relative path */
+            background-size: contain;
+            margin-right: 10px;
+        }
+
+        .certificate-list li .name {
+            font-size: 16px;
+            color:black;
+            flex-grow: 1; /* Ensures the name takes up available space */
+            font-weight: 600; /* Slightly less bold */
+        }
+
+        .certificate-list li .view {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: rgb(73, 193, 73); /* Set text color to black initially */
+            cursor: pointer;
+            transition: color 0.2s; /* Smooth transition effect */
+        }
+
+        .certificate-list li .view:hover {
+            color: rgb(34, 143, 34); /* Change color to green on hover */
+        }
+
+        .certificate-list li .view .icon-eye {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            font-size: 14px;
+            color: rgb(73, 193, 73); /* Set icon color to black initially */
+            margin-right: 5px;
+        }
+
+        .certificate-list li .view:hover .icon-eye {
+            color: rgb(34, 143, 34); /* Change icon color to green on hover */
+        }
+        
         h1 {
             font-size: 36px;
             font-family: 'Poppins';
             text-align: center;
         }
+    
            h2 {
             font-size: 25px;
             font-family: 'Poppins';
-            color: rgb(30, 159, 171);
-        }
-
-        @media (max-width: 768px) {
-            .container .popup-image img {
-                width: 95%;
-            }
+            
         }
     </style>
 </head>
 <body>
-    <br><br>
     <center>
-        <h1>My Certificates</h1><br><br><br>
+        <br><h1>My Certificates</h1><br><br>
     </center>
     <div class="container">
-        <h2>My Learnings:</h2><br>
-        <div class="image-container">
-            <div class="image" data-description="JavaScript Certificate">
-                <img src="images/Simplilern Javascript Certificate.png" alt="JavaScript Certificate" />
-                <div class="description">Simplilearn JavaScript Certificate</div>
-            </div>
-            
-            <div class="image" data-description="C Language Certificate">
-                <img src="images/Great Learning C Language Certificate.png" alt="C Language Certificate" />
-                <div class="description">Great Learning C Language Certificate</div>
-            </div>
-            
-            <div class="image" data-description="Solo learn C Language">
-                <img src="images/Solo learn C Language Certificate.jpg" alt="Solo Learn C Language Certificate" />
-                <div class="description">Solo Learn C Language Certificate</div>
-            </div>
-            
-            <div class="image" data-description="HTML Certificate">
-                <img src="images/Mind luster HTML Certificate.jpg" alt="Mindluster HTML Certificate" />
-                <div class="description">Mindluster HTML Certificate</div>
-            </div>
-            
-            <div class="image" data-description="HTML Certificate">
-                <img src="images/Simplilearn HTML Certificate.png" alt="Simplilearn HTML Certificate" />
-                <div class="description">Simplilearn HTML Certificate</div>
-            </div>
-            
-            <div class="image" data-description="Canva for Beginners Certificate">
-                <img src="images/Simplilearn Canva for beginers Certificate.png"Canva for Beginners Certificate" />
-                <div class="description">Simplilearn Canva for Beginners Certificate</div>
-            </div>
-        </div>
-        <br><br>
-        <h2>My Contests:</h2><br>
-        <div class="image-container">
-            <div class="image" data-description="Codefiesta Certificate">
-                <img src="images/codefiesta certificate.jpg" alt="Codefiesta Certificate" />
-                <div class="description">Codefiesta Certificate</div>
-            </div>
-            <div class="image" data-description="Creatathon Certificate">
-                <img src="images/Creatathon certificate.jpg" alt="Creatathon Certificate" />
-                <div class="description">Creatathon Certificate</div>
-            </div>
-            <div class="image" data-description="Codefiesta 3rd Certificate">
-                <img src="images/Codefiesta 3rd.jpg" Codefiesta 3rd Certificate" />
-                <div class="description">Codefiesta 3rd Certificate</div>
-            </div>
-            
-            
-        </div>
-        <br><br>
-        <h2>My Hackathons:</h2><br>
-        <div class="image-container">
-            <div class="image" data-description="Self e Hackaton Certificate">
-                <img src="images/Self e Hacathon Certificate.jpg" alt="Self e Hackathon Certificate" />
-                <div class="description">Self e Hackathon Certificate</div>
-            </div>
-        </div>
-        <br><br>
-        <h2>My Workshops:</h2><br>
-        <div class="image-container">
-            <div class="image" data-description="CIT Workshop for ML and AUG">
-                <img src="images/CIT ML AUG Workshop.jpg" alt="CIT Workshop for ML and AUG" />
-                <div class="description">CIT Workshop for ML and AUG</div>
-            </div>
+        <div class="section">
+            <h2>My Learning & Accomplishments</h2>
+            <ul class="certificate-list">
+              
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Python (Basic) - <b>Hackerrank</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1tiSPfyFyaO5uGN2sVF4teH18AHUKv51v/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">The Complete Python Bootcamp Zero to Expert - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1vzwy2LnN_9sEhIzGLsFFV6JchBE-4mUK/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Pandas - <b>Kaggle</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1fATSRfRu9c8kTLiwD8o1YEbm_L-sekyX/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Python Matplotlib - <b>Great Learning Academy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1fzYLrP5MY0tqjk2UzQ92Zs86F5QPxWs-/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
 
-            <div class="image" data-description="ITI Excel Certificate">
-                <img src="images/ITI Excel Certificate.png" alt="ITI Excel Certificate" />
-                <div class="description">ITI Excel Certificate</div>
-            </div>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Mastering Data Structures & Algorithms using C and C++ - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1aKwqOwT8HE2cvsYnc2CBVNIZx3KNyhJL/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">The Git & GitHub Bootcamp: The Complete Practical Guide - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1hp_QdmzjI-FW7M7ce7dg0IFvQRWm10h_/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Git Training - <b>Simplilearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1jsvrO4PVAaQOg8JIJ0hdWjEwicjv43MM/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">JavaScript Fundamental Course for Beginners - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1ACdhyhU55H-Kx1SLfrl-FJmfZ0VFQvD2/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">JavaScript for Beginners - <b>Simplilearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1sLPTYa-iDNAg7SBeTU0iLvf1iOzyGan4/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Introduction to CSS - <b>Simplilearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1Iw2o7py0d8OZeNP31WqVsMmi-sTgIQ88/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">HTML-The Complete Guide to HTML For Beginners - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1e7b_KcNegjGk9TeNQOrh7AWOARV5k0Y-/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>  
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Introduction to HTML - <b>Sololearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1zeDrUmqQbu4vSu_XyOl9pfFwiBnXJOP7/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Canva for Beginners - <b>Simplilearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1M3LGINhVZE-xuTISx2wKN-hHPOIFJlhS/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">C Programing Bootcamp-The Complete C Language Course - <b>Udemy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1Mef2jISVg9ImCsG9KvNQW1Rr1Hm7nDWh/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Intoduction To C - <b>Sololearn</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1pfBzztRs7EbM0azq3yuplW2bI-fD3TTb/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">C For Beginners - <b>Great Learning Academy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1DVUpSyP9CfkT6ee5cmjxqHFTaRUNv3OX/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+            </ul>
         </div>
-        <div class="popup-image">
-            <span>&times;</span>
-            <img src="" alt="" />
+
+
+
+
+
+
+        <div class="section">
+            <h2>My Hackathons</h2>
+            <ul class="certificate-list">
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Self E Hackathon 2023 (Top 5th) - <b>Sri Eshwar College of Engineering , Coimbatore</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1OHZidbrn4M0P1nzWdhvEd9zki9CN1l6c/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>My Contests & Events</h2> 
+            <ul class="certificate-list">
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Intellina 2024 (Participation) - <b>Coimbatore Institute of Technology , Coimbatore</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1QYuxL0fLdIVFTtrcRI4FtA1RJFTsEoR7/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">CodeFiesta 2024 (Top 3rd) - <b>Sri Eshwar College of Engineering , Coimbatore</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1xQhGUgks_QB7aY6clIrDGO8XRH4K4ac3/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Creatathon 2024 (Participation) - <b>Sri Eshwar College of Engineering , Coimbatore</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1yzvKu65C9M1ooAMUiGuV2oGSU3J7hhZV/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>My Workshops</h2>
+            <ul class="certificate-list">
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Workshop on Learning & Augumented Reality - <b>Coimbatore Institute of Technology , Coimbatore</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1jJAQzHoQZ5FhI3NL8hvVeLgGighXVyuN/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+                <li>
+                    <span class="icon-certificate"></span>
+                    <span class="name">Workshop on Excel (Online) - <b>ITI Academy</b></span>
+                    <span class="view" onclick="openLink('https://drive.google.com/file/d/1hpkHNDnCowI1faTOUjt__uFyxCjpHYMf/view?usp=drive_link')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Certificate
+                    </span>
+                </li>
+            </ul>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll(".image img").forEach(image => {
-            image.onclick = () => {
-                document.querySelector(".popup-image").style.display = "block";
-                document.querySelector(".popup-image img").src = image.getAttribute("src");
-            };
-        });
-
-        document.querySelector(".popup-image span").onclick = () => {
-            document.querySelector(".popup-image").style.display = "none";
-        };
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
     </script>
 </body>
 </html>
