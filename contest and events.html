@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contests and Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         * {
@@ -12,196 +13,266 @@
             box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            padding: 35px;
+        }
+
         .container {
-            position: relative;
-            min-height: 100vh;
-            background: white;
-        }
-
-        .container .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .container .image-container .image {
-            height: 360px;
-            width: 280px;
-            border: 10px solid white;
-            box-shadow: 0 5px 15px rgb(82, 216, 82);
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .container .image-container .image img {
-            height: 100%;
             width: 100%;
-            object-fit: cover;
-            transition: 0.2s linear;
-        }
-
-        .container .image-container .image:hover img {
-            transform: scale(1.1);
-        }
-
-        .container .image-container .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(82, 216, 82, 0.9); /* Updated color */
-            color: white;
-            text-align:center;
-            padding: 10px;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .container .image-container .image:hover .description {
-            opacity: 1;
-        }
-
-        .container .popup-image {
-            position:fixed;
-            top: 0;
-            left: 0;
-            background: black;
-            height: 100%;
-            width: 100%;
-            z-index: 100;
-            display: none;
-        }
-
-        .container .popup-image span {
-            position:fixed;
-            top: 0;
-            right: 10px;
-            font-size: 40px;
-            font-weight:bolder;
-            color: white;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        .container .popup-image img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: 5px solid white;
-        border-radius: 5px;
-        max-width: 95%; /* Use max-width to prevent the image from exceeding the viewport width */
-        max-height: 95vh; /* Use max-height to prevent the image from exceeding the viewport height */
-        object-fit: contain; /* Use contain to maintain the image's aspect ratio */
-    }
-
-    .container .image-container .image .event-description {
-            text-align: center;
-            margin-top: 10px;
-            color: #333; /* Adjust the color as needed */
-        }
-
-        .event-description {
-            margin-top: 30px;
-            text-align:center;
-        }
-        .container {
-            width: 90%;
-            margin-left: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
             background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 0 10px black;
-            padding: 30px;
-            
-            
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-    color: rgb(30, 159, 171);
-    font-size: 28px; /* Adjust the font size as needed */
-    font-family: 'Poppins';
-   
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #3a3a3a;
+            margin-bottom: 25px;
+        }
+
+        .event-list {
+            list-style: none;
+            padding: 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .event-list li {
+            padding: 15px 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .event-list li:last-child {
+            border-bottom: none;
+        }
+
+        .event-list li .name {
+            font-size: 16px;
+            color: black;
+            font-weight: 600; /* Bold text */
+        }
+
+        .event-list li .view {
+    font-size: 14px;
+    color: rgb(73, 193, 73); /* Light green text color initially */
+    cursor: pointer;
+    transition: color 0.2s; /* Smooth transition effect */
+    display: flex;
+    align-items: center;
+    font-weight: normal; /* Ensure text is not bold */
 }
 
 
-h3{
-    font-weight:bold;
-    font-size: 16px; ;
-    font-family: 'Poppins';
-}
-  h1{
-    font-family: 'Poppins';
-    font-size: 36px; ;
-  }
-       
-
-        
-
-
-        
-        @media (max-width: 768px) {
-            .container .popup-image img {
-                width: 95%;
-            }
+        .event-list li .view:hover {
+            color: rgb(34, 143, 34); /* Dark green text color on hover */
         }
 
-  
+        .event-list li .view .icon-eye {
+            width: 20px;
+            height: 20px;
+            font-size: 14px;
+            color: rgb(73, 193, 73); /* Light green icon color initially */
+            margin-right: 5px;
+        }
 
-        
+        .event-list li .view:hover .icon-eye {
+            color: rgb(34, 143, 34); /* Dark green icon color on hover */
+        }
 
-    
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    text-align: justify; /* Justify text for alignment on both sides */
+}
+
+.modal-content img {
+    width: 100%; /* Make image responsive */
+    max-width: 250px; /* Set maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    display: block; /* Ensure image is a block-level element */
+    margin: 20px auto; /* Add space above and below, and center-align the image */
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px; /* Add space below the heading */
+    text-align: center; /* Center-align the heading */
+}
+
+.modal-content p {
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 20px; /* Add space below the paragraph */
+    line-height: 1.6; /* Improve line spacing for readability */
+    font-size: 14px;
+    color: #555;
+    text-align: justify; /* Justify text for alignment on both sides */
+}
+
+
+
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-family: 'Poppins';
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <br><br>
     <center>
-        <h1>Contests and Events</h1><br><br><br>
+        <h1>Contests and Events<br><br></h1>
     </center>
     <div class="container">
-        <h2 align="center">Self E Hackathon:</h2><br><br>
-        <div class="image-container">
-            <div class="image" data-description="Self e Hackaton Poster">
-                <img src="images/self e Hackaton winner poster.jpg" alt="Self e Hackaton Poster" />
-                <div class="description">Self e Hackaton Winners</div>
+        <div class="section">
+            <h2>Hackathons</h2>
+            <ul class="event-list">
+                <li>
+                    <span class="name"><b>SELF E Hackathon 2023</span>
+                    <span class="view" onclick="openModal('contest1')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Details
+                    </span>
+                </li>
                 
-            </div>
-            <div>
-            <br><br><h3 class="event-description">It was my first Hackathon contest and I have no idea about it . And the Problem Statement given to us is about the Waste Management and we came up with<br><br> solution called WasteX which include Both hardware and software to keep the waste management well organized and providing awareness to the citizens to<br><br> kepp our city clean and green in low cost efficient . Even though it was my first I worked hard for it . The event 
-                was conducted by the Department of <br><br>Computer Science Engineering exclusive for first year students at Sri Eshwar College Of Engineering , Coimbatore , which took place from October 3 to <br><br>October 19 , 2023.
-            Among the 100 teams that participated , the top 32 teams  were selected to completein the 6 hour Grand finalae . The Event was concluded<br><br>
-        with the Top 5 Winning Teams  recieving cash prizes and trophies from the Principal . And I was very happy that I had lead my Team to the Victory.</h3>
+                <!-- Add more contests here -->
+            </ul>
         </div>
-        
-        
-
-        <div class="popup-image">
-            <span>&times;</span>
-            <img src="" alt="" />
+        <div class="section">
+            <h2>Contests</h2>
+            <ul class="event-list">
+                <li>
+                    <span class="name"><b>CodeFiesta 2024</b></span>
+                    <span class="view" onclick="openModal('event1')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Details
+                    </span>
+                </li>
+                <li>
+                    <span class="name"><b>Creathathon 2024</b></span>
+                    <span class="view" onclick="openModal('event2')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Details
+                    </span>
+                </li>
+                <li>
+                    <span class="name"><b>Freshathon 2024 (May - June)</b></span>
+                    <span class="view" onclick="openModal('event3')">
+                        <span class="icon-eye"><i class="fas fa-eye"></i></span> View Details
+                    </span>
+                </li>
+                <!-- Add more events here -->
+            </ul>
         </div>
     </div>
 
-        <div class="popup-image">
-            <span>&times;</span>
-            <img src="" alt="" />
+    <!-- Modal structure -->
+    <div id="contest1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contest1')">&times;</span>
+            <h2>SELF E Hackathon 2023 (Top 5 Winners)</h2>
+            <img src="images/self e Hackaton winner poster.jpg" alt="Self e Hackathon">
+            <p>In my first Hackathon, hosted by the Department of Computer Science Engineering at Sri Eshwar College of Engineering, Coimbatore, from October 3 to 19, 2023, my team and I worked on a waste management problem. We created WasteX, a solution that uses both hardware and software to help manage waste better, raise awareness, and keep our city clean in a cost-effective way.<br><br>
+
+                Out of 100 teams, we were among the top 32 chosen for the 6-hour Grand Finale. We were happy to be one of the top 5 winning teams and received cash prizes and trophies from the Principal. It was exciting to see our hard work pay off in my first Hackathon. My teammates were Nithyasarathi Mhithun and Karthikesh.</p>
         </div>
     </div>
+    
+
+ 
+
+    <div id="event1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('event1')">&times;</span>
+            <h2>CodeFiesta 2024 (Top 3 Winners)</h2>
+            <img src="images/Codefiesta Poster.jpg" alt="Codefiesta 2024">
+            <p>Codefiesta was a 6-hour contest held on January 4, 2024, at Sri Eshwar College of Engineering. Each team was tasked with building a model based on a given topic using the C language. Our team was assigned the development of a School Management System. We put in a lot of effort and successfully completed the project, securing third place in the contest. The project was evaluated by college professors and industry experts. I worked alongside with my talented teammates Kavin, Jameel Ahmed, and Surya Prabha.</p>
+        </div>
+    </div>
+
+    <div id="event2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('event2')">&times;</span>
+            <h2>Creatathon 2024 (Participation)</h2>
+            <img src="images/Creathathon Poster.jpg" alt="Creatathon 2024">
+            <p>Creathathon 2024 was a 6-hour contest held on January 5, 2024, at Sri Eshwar College of Engineering, Coimbatore. Each participant was tasked with creating a portfolio using HTML, CSS, and JavaScript. I dedicated a lot of effort to my project, and it was evaluated by industry experts. While I didn't manage to impress enough to secure a top position, I was proud to receive a participation certificate. This experience taught me valuable lessons and motivated me to keep improving my skills.</p>
+        </div>
+    </div>
+
+    <div id="event3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('event3')">&times;</span>
+            <h2>Freshathon 2024 (Participation)</h2>
+            <img src="images/Freshathon Poster.jpg" alt="Creatathon 2024">
+            <p>In Freahathon 2024, which took place from May to June 2024, I participated in a project expo exclusively for first-year students. The event, organized by the Department of Science and Humanities, featured four stages: Zeroth Review, First Review, Second Review, and Final Expo. My team, consisting of Veera Vasanthan, Surendhar, and me, developed a Waste Management and Waste Segregator project. We received valuable guidance and motivation from our mentors and evaluators, which was instrumental in the development of our project.<br><br>
+
+                Despite our significant effort and dedication, we were awarded a participation certificate. The experience was invaluable, providing us with important insights and skills that will benefit us in future projects.</p>
+        </div>
+    </div>
+    
+
 
     <script>
-        document.querySelectorAll(".image img").forEach(image => {
-            image.onclick = () => {
-                document.querySelector(".popup-image").style.display = "block";
-                document.querySelector(".popup-image img").src =
-                    image.getAttribute("src");
-            };
-        });
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
 
-        document.querySelector(".popup-image span").onclick = () => {
-            document.querySelector(".popup-image").style.display = "none";
-        };
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // Close modals when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
