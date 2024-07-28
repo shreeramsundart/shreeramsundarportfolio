@@ -395,24 +395,41 @@ h3{
 }
 
 /* ----- ABOUT / SKILLS BOX ----- */
-.skills-box{
+.skills-box {
     margin: 10px;
 }
-.skills-header{
+
+.skills-header {
     margin-bottom: 30px;
+    text-align: center;
 }
-.skills-list{
+
+.skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
-.skills-list span{
+
+.skills-list span {
     font-size: 14px;
     background: var(--first-color);
     color: var(--color-white);
     padding: 2px 10px;
     border-radius: 5px;
 }
+
+/* Add padding between columns */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.column {
+    flex: 1;
+}
+
 /* ----- PROJECTS BOX ----- */
 .project-container {
     display: flex;
