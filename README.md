@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my portfolio website! This repository contains the source code for my personal portfolio, showcasing my projects, skills, and professional experience.
+Welcome to my portfolio website! This repository contains the source code for my personal portfolio, showcasing my Certificates, skills,contacts and my experiences.
 
 ## 🌐 View Portfolio Online
 
